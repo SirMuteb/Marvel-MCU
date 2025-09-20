@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCU Watchlist</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#20232a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MCU Watchlist">
+  <style>
+    body { font-family: Arial, sans-serif; background:#121212; color:#fff; margin:20px; }
+    h1 { text-align:center; }
+    ul { list-style:none; padding:0; }
+    li { background:#1e1e1e; margin:8px 0; padding:10px; border-radius:5px; }
+    label { cursor:pointer; display:flex; align-items:center; }
+    input[type="checkbox"] { margin-right:10px; }
+  </style>
+</head>
+<body>
+  <h1>MCU Watchlist</h1>
+  <p style="text-align:center;">Mark movies as watched ✅</p>
+  <ul>
+    <li><label><input type="checkbox">Iron Man (2008)</label></li>
+    <li><label><input type="checkbox">The Incredible Hulk (2008)</label></li>
+    <li><label><input type="checkbox">Iron Man 2 (2010)</label></li>
+    <li><label><input type="checkbox">Thor (2011)</label></li>
+    <li><label><input type="checkbox">Captain America: The First Avenger (2011)</label></li>
+    <li><label><input type="checkbox">The Avengers (2012)</label></li>
+    <li><label><input type="checkbox">Iron Man 3 (2013)</label></li>
+    <li><label><input type="checkbox">Thor: The Dark World (2013)</label></li>
+    <li><label><input type="checkbox">Captain America: The Winter Soldier (2014)</label></li>
+    <li><label><input type="checkbox">Guardians of the Galaxy (2014)</label></li>
+    <li><label><input type="checkbox">Avengers: Age of Ultron (2015)</label></li>
+    <li><label><input type="checkbox">Ant-Man (2015)</label></li>
+    <li><label><input type="checkbox">Captain America: Civil War (2016)</label></li>
+    <li><label><input type="checkbox">Doctor Strange (2016)</label></li>
+    <li><label><input type="checkbox">Guardians of the Galaxy Vol. 2 (2017)</label></li>
+    <li><label><input type="checkbox">Spider-Man: Homecoming (2017)</label></li>
+    <li><label><input type="checkbox">Thor: Ragnarok (2017)</label></li>
+    <li><label><input type="checkbox">Black Panther (2018)</label></li>
+    <li><label><input type="checkbox">Avengers: Infinity War (2018)</label></li>
+    <li><label><input type="checkbox">Ant-Man and the Wasp (2018)</label></li>
+    <li><label><input type="checkbox">Captain Marvel (2019)</label></li>
+    <li><label><input type="checkbox">Avengers: Endgame (2019)</label></li>
+    <li><label><input type="checkbox">Spider-Man: Far From Home (2019)</label></li>
+    <li><label><input type="checkbox">Black Widow (2021)</label></li>
+    <li><label><input type="checkbox">Shang-Chi and the Legend of the Ten Rings (2021)</label></li>
+    <li><label><input type="checkbox">Eternals (2021)</label></li>
+    <li><label><input type="checkbox">Spider-Man: No Way Home (2021)</label></li>
+    <li><label><input type="checkbox">Doctor Strange in the Multiverse of Madness (2022)</label></li>
+    <li><label><input type="checkbox">Thor: Love and Thunder (2022)</label></li>
+    <li><label><input type="checkbox">Black Panther: Wakanda Forever (2022)</label></li>
+    <li><label><input type="checkbox">Ant-Man and the Wasp: Quantumania (2023)</label></li>
+    <li><label><input type="checkbox">Guardians of the Galaxy Vol. 3 (2023)</label></li>
+    <li><label><input type="checkbox">The Marvels (2023)</label></li>
+    <li><label><input type="checkbox">Deadpool & Wolverine (2024)</label></li>
+    <li><label><input type="checkbox">Captain America: Brave New World (2025)</label></li>
+    <li><label><input type="checkbox">Thunderbolts (2025)</label></li>
+    <li><label><input type="checkbox">The Fantastic Four: First Steps (2025)</label></li>
+    <li><label><input type="checkbox">Avengers: Doomsday (2026)</label></li>
+    <li><label><input type="checkbox">Avengers: Secret Wars (2027)</label></li>
+  </ul>
+  <script>
+    // حفظ حالة الأفلام (watched/unwatched) في localStorage
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((box, i) => {
+      const saved = localStorage.getItem('movie_'+i);
+      if (saved === 'true') box.checked = true;
+      box.addEventListener('change', () => {
+        localStorage.setItem('movie_'+i, box.checked);
+      });
+    });
+  </script>
+</body>
+</html>
